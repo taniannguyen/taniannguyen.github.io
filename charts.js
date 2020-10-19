@@ -76,10 +76,10 @@ function buildCharts(sample) {
   
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
-
+ 
 
     var yticks = newOtu_ids.slice(0, 10).map(x => `OTU ${x}`).reverse()
-   
+  
     yticks = yticks.sort((a, b) => a - b);
   
     // 8. Create the trace for the bar chart. 
@@ -92,7 +92,7 @@ function buildCharts(sample) {
       orientation: 'h'
     };
 
-  // 9. Create the layout for the bar chart. 
+    // 9. Create the layout for the bar chart. 
     var barLayout = {
       title: 'Top 10 Bacteria Cultures Found',
       barmode: 'stack',
@@ -100,8 +100,8 @@ function buildCharts(sample) {
         tickmode: "linear",
       
       },
-      plot_bgcolor: "white",
-      paper_bgcolor:"white"
+      plot_bgcolor: "#FFF3",
+      paper_bgcolor:"#FFF3"
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar-plot", [barData], barLayout);
@@ -118,7 +118,7 @@ function buildCharts(sample) {
       marker: {
         size: newSample_value,
         color: newOtu_ids,
-      
+  
       }
     };
 
@@ -128,8 +128,8 @@ function buildCharts(sample) {
       xaxis: { title: 'OTU ID' },
 
       hovermode: true,
-      plot_bgcolor:"white",
-      paper_bgcolor:"white" 
+      plot_bgcolor:"#FFF3",
+      paper_bgcolor:"#FFF3" 
     };
 
     // 3. Use Plotly to plot the data with the layout.
@@ -141,7 +141,6 @@ function buildCharts(sample) {
     // 3. Create a variable that holds the washing frequency.
     var desiredFrequency = data.metadata.filter(sampArr => sampArr.id == sample);
     var wfreq = desiredFrequency.map(d => d.wfreq)
-  
     // 4. Create the trace for the gauge chart.
     var gaugeData = [
       {
@@ -154,11 +153,11 @@ function buildCharts(sample) {
           axis: { range: [0, 10], tickcolor: 'darkblue' },
           bar: { color: 'black'},
           steps: [
-            { range: [0, 2], color: "cornflowerblue" },
-            { range: [2, 4], color: "plum" },
-            { range: [4, 6], color: "moccasin" },
-            { range: [6, 8], color: "cyan" },
-            { range: [8, 10], color: "seagreen" }
+            { range: [0, 2], color: "cyan" },
+            { range: [2, 4], color: "magenta" },
+            { range: [4, 6], color: "palegreen" },
+            { range: [6, 8], color: "peachpuff" },
+            { range: [8, 10], color: "rebeccapurple" }
           ]
 
         }
@@ -167,8 +166,8 @@ function buildCharts(sample) {
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = {
       width: 400, height: 400, margin: { t: 0, b: 0 },
-      plot_bgcolor: "white",
-      paper_bgcolor:"white"
+      plot_bgcolor: "teal",
+      paper_bgcolor:"#FFF3"
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
